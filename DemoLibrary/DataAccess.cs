@@ -24,7 +24,13 @@ namespace DemoLibrary
         public static List<PersonModel> GetAllPeople()
         {
             var output = new List<PersonModel>();
-            var content = File.ReadAllLines(personTextFile);
+
+            string[] content = new string[0];
+            var fullPath = Path.GetFullPath(personTextFile);
+            if (File.Exists(fullPath))
+            {
+                content = File.ReadAllLines(fullPath);
+            }
 
             foreach (var line in content)
             {
