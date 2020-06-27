@@ -1,23 +1,23 @@
 ﻿namespace DemoLibrary
 {
-    public static class Calculator
+    public class Calculator : ICalculator
     {
-        public static double Add(double x, double y)
+        public double Add(double x, double y)
         {
             return x + y;
         }
 
-        public static double Subtract(double x, double y)
+        public double Subtract(double x, double y)
         {
             return x - y;
         }
 
-        public static double Multiply(double x, double y)
+        public double Multiply(double x, double y)
         {
             return x * y;
         }
 
-        public static double Divide(double x, double y)
+        public double Divide(double x, double y)
         {
             return x / y;
         }

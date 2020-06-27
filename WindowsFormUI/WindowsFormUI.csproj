@@ -85,6 +85,10 @@
       <Project>{DF5235D7-C585-43E5-9ACB-F98331D7B6FC}</Project>
       <Name>DemoLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{EAB49191-FD82-4654-83FA-85E1ACC18BA2}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="PersonText.txt">

@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace DemoLibrary.Tests
 {
     [TestFixture]
     public class CalculatorTests
     {
+        private ICalculator _calculator;
         [SetUp]
         public void Initialize()
         {
-
+            _calculator = new Calculator();
         }
 
         [TestCase(20, 40, 60)]
@@ -23,7 +18,7 @@ namespace DemoLibrary.Tests
             // Arrange
             
             // Act
-            var actual = Calculator.Add(x, y);
+            var actual = _calculator.Add(x, y);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -35,7 +30,7 @@ namespace DemoLibrary.Tests
             // Arrange
 
             // Act
-            var actual = Calculator.Subtract(x, y);
+            var actual = _calculator.Subtract(x, y);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -47,7 +42,7 @@ namespace DemoLibrary.Tests
             // Arrange
 
             // Act
-            var actual = Calculator.Multiply(x, y);
+            var actual = _calculator.Multiply(x, y);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -59,7 +54,7 @@ namespace DemoLibrary.Tests
             // Arrange
 
             // Act
-            var actual = Calculator.Divide(x, y);
+            var actual = _calculator.Divide(x, y);
 
             // Assert
             Assert.AreEqual(expected, actual);

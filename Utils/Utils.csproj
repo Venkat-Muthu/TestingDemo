@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DF5235D7-C585-43E5-9ACB-F98331D7B6FC}</ProjectGuid>
+    <ProjectGuid>{EAB49191-FD82-4654-83FA-85E1ACC18BA2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DemoLibrary</RootNamespace>
-    <AssemblyName>DemoLibrary</AssemblyName>
+    <RootNamespace>Utils</RootNamespace>
+    <AssemblyName>Utils</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,19 +41,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculator.cs" />
-    <Compile Include="Examples.cs" />
-    <Compile Include="DataAccess.cs" />
-    <Compile Include="ICalculator.cs" />
-    <Compile Include="IDataAccess.cs" />
-    <Compile Include="Models\PersonModel.cs" />
+    <Compile Include="FileSystemWrapper\DirectoryInfoWrapperManager.cs" />
+    <Compile Include="FileSystemWrapper\DirectoryWrapper.cs" />
+    <Compile Include="FileSystemWrapper\DriveInfoWrapper.cs" />
+    <Compile Include="FileSystemWrapper\FileInfoWrapper.cs" />
+    <Compile Include="FileSystemWrapper\FileInfoWrapperManager.cs" />
+    <Compile Include="FileSystemWrapper\FileSecurityWrapper.cs" />
+    <Compile Include="FileSystemWrapper\FileSystemWatcherWrapper.cs" />
+    <Compile Include="FileSystemWrapper\FileWrapper.cs" />
+    <Compile Include="FileSystemWrapper\IAccessTheRegistry.cs" />
+    <Compile Include="FileSystemWrapper\IDirectoryHierarchyLevelHelper.cs" />
+    <Compile Include="FileSystemWrapper\IDirectoryInfoWrapper.cs" />
+    <Compile Include="FileSystemWrapper\IFileSecurityWrapper.cs" />
+    <Compile Include="FileSystemWrapper\IRegistry.cs" />
+    <Compile Include="FileSystemWrapper\IRegistryKey.cs" />
+    <Compile Include="FileSystemWrapper\IRegistrySecurity.cs" />
+    <Compile Include="FileSystemWrapper\PathWrapper.cs" />
+    <Compile Include="FileSystemWrapper\RegistryKeyWrap.cs" />
+    <Compile Include="FileSystemWrapper\RegistrySecurityWrap.cs" />
+    <Compile Include="FileSystemWrapper\RegistryWrap.cs" />
+    <Compile Include="FileSystemWrapper\SafeHandles\ISafeFileHandle.cs" />
+    <Compile Include="FileSystemWrapper\SafeHandles\ISafeRegistryHandle.cs" />
+    <Compile Include="FileSystemWrapper\SafeHandles\SafeFileHandleWrap.cs" />
+    <Compile Include="FileSystemWrapper\SafeHandles\SafeRegistryHandleWrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Utils\Utils.csproj">
-      <Project>{EAB49191-FD82-4654-83FA-85E1ACC18BA2}</Project>
-      <Name>Utils</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
