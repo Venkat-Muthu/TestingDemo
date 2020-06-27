@@ -19,7 +19,7 @@ namespace DemoLibrary.Tests
         }
 
         [Test]
-        public void GetAllPeople_ShouldReturnZeroRows()
+        public void GetAllPeople_ShouldReturnTwoRows()
         {
             // Arrange
             string[] content = new[] {"F1,L1", "F2,L2"};

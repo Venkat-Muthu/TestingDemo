@@ -51,7 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalculatorTests.cs" />
+    <Compile Include="DataAccessBuilder.cs" />
     <Compile Include="DataAccessTests.cs" />
+    <Compile Include="DataAccessWithBuilderTests.cs" />
     <Compile Include="ExamplesTests.cs" />
     <Compile Include="PersonModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
