@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculatorAsyncTests.cs" />
     <Compile Include="CalculatorTests.cs" />
     <Compile Include="DataAccessBuilder.cs" />
     <Compile Include="DataAccessTests.cs" />
