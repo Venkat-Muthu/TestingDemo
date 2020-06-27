@@ -39,7 +39,7 @@ namespace DemoLibrary
         {
             return await Task.Run(async () =>
             {
-                await Task.Delay(TimeSpan.FromSeconds(50));
+                await Task.Delay(TimeSpan.FromSeconds(5));//Purposeful delay for test
                 return Multiply(x, y);
             });
         }
