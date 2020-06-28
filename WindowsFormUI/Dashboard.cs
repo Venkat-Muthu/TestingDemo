@@ -47,24 +47,17 @@ namespace WindowsFormUI
 
         private void OnNext(Ticker ticker)
         {
-            if (txtSymbol.InvokeRequired)
+            try
             {
-                try
-                {
-                    SafeCallDelegate d = OnNext;
-                    Invoke(d, ticker);
-                }
-                catch (ObjectDisposedException)
-                {
-                }
+                txtSymbol.Invoke((Action) (() => txtSymbol.Text = ticker.Symbol));
+                txtBidPrice.Invoke((Action) (() =>
+                    txtBidPrice.Text = ticker.BidPrice.ToString(CultureInfo.InvariantCulture)));
+                txtAskPrice.Invoke((Action) (() =>
+                    txtAskPrice.Text = ticker.AskPrice.ToString(CultureInfo.InvariantCulture)));
             }
-            else
+            catch (ObjectDisposedException)
             {
-                txtSymbol.Text = ticker.Symbol;
-                txtBidPrice.Text = ticker.BidPrice.ToString(CultureInfo.InvariantCulture);
-                txtAskPrice.Text = ticker.AskPrice.ToString(CultureInfo.InvariantCulture);
             }
-
         }
 
         private void InitializeBackgroundWorker()

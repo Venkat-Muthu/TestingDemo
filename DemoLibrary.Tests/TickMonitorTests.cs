@@ -52,7 +52,7 @@ namespace DemoLibrary.Tests
                 });
             _tickerMonitor.Start();
 
-            var wait = finishedEvent.Wait(TimeSpan.FromMilliseconds(1000));
+            var wait = finishedEvent.Wait(TimeSpan.FromMilliseconds(10000));
             _eventAggregator.VerifyAllExpectations();
             Assert.IsTrue(wait);
 

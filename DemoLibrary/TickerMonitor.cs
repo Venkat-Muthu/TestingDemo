@@ -38,7 +38,7 @@ namespace DemoLibrary
         
         public void Start()
         {
-            _subscribe = Observable.Interval(TimeSpan.FromMilliseconds(500), _scheduler)
+            _subscribe = Observable.Interval(TimeSpan.FromMilliseconds(1000), _scheduler)
                 .Timestamp()
                 .Subscribe(RepeatAction);
         }
