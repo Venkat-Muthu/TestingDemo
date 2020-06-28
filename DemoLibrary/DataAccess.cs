@@ -1,14 +1,21 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using DemoLibrary.Models;
+using Utils.FileSystemWrapper;
 
 namespace DemoLibrary
 {
-    public static class DataAccess
+    public class DataAccess : IDataAccess
     {
         private static string personTextFile = "PersonText.txt";
+        private readonly IFileWrapper _fileWrapper;
+        private readonly IPathWrapper _pathWrapper;
+        public DataAccess(IFileWrapper fileWrapper, IPathWrapper pathWrapper)
+        {
+            _fileWrapper = fileWrapper;
+            _pathWrapper = pathWrapper;
+        }
 
-        public static void AddNewPerson(PersonModel personModel)
+        public void AddNewPerson(PersonModel personModel)
         {
             var lines = new List<string>();
             var people = GetAllPeople();
@@ -18,13 +25,19 @@ namespace DemoLibrary
             {
                 lines.Add($"{person.FirstName},{person.LastName}");
             }
-            File.WriteAllLines(personTextFile, lines);
+            _fileWrapper.WriteAllLines(personTextFile, lines);
         }
 
-        public static List<PersonModel> GetAllPeople()
+        public List<PersonModel> GetAllPeople()
         {
             var output = new List<PersonModel>();
-            var content = File.ReadAllLines(personTextFile);
+
+            string[] content = new string[0];
+            var fullPath = _pathWrapper.GetFullPath(personTextFile);
+            if (_fileWrapper.Exists(fullPath))
+            {
+                content = _fileWrapper.ReadAllLines(fullPath);
+            }
 
             foreach (var line in content)
             {

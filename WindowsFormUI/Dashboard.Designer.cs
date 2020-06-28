@@ -1,4 +1,6 @@
-﻿namespace WindowsFormUI
+﻿using System.Drawing;
+
+namespace WindowsFormUI
 {
     partial class Dashboard
     {
@@ -28,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtResult = new System.Windows.Forms.TextBox();
@@ -47,10 +50,23 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cbUsers = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtClock = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.chkMonitor = new System.Windows.Forms.CheckBox();
+            this.txtBidPrice = new System.Windows.Forms.TextBox();
+            this.txtSymbol = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtAskPrice = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -67,7 +83,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(32, 31);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(510, 802);
+            this.groupBox1.Size = new System.Drawing.Size(510, 666);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Calculate Section";
@@ -171,7 +187,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(564, 31);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(498, 802);
+            this.groupBox2.Size = new System.Drawing.Size(460, 666);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Database Section";
@@ -235,21 +251,123 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Users";
             // 
+            // txtClock
+            // 
+            this.txtClock.Location = new System.Drawing.Point(27, 37);
+            this.txtClock.Name = "txtClock";
+            this.txtClock.Size = new System.Drawing.Size(343, 38);
+            this.txtClock.TabIndex = 2;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtAskPrice);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.chkMonitor);
+            this.groupBox3.Controls.Add(this.txtBidPrice);
+            this.groupBox3.Controls.Add(this.txtSymbol);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.txtClock);
+            this.groupBox3.Location = new System.Drawing.Point(1053, 31);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(426, 666);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            // 
+            // chkMonitor
+            // 
+            this.chkMonitor.AutoSize = true;
+            this.chkMonitor.Checked = true;
+            this.chkMonitor.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkMonitor.Location = new System.Drawing.Point(165, 120);
+            this.chkMonitor.Name = "chkMonitor";
+            this.chkMonitor.Size = new System.Drawing.Size(148, 36);
+            this.chkMonitor.TabIndex = 7;
+            this.chkMonitor.Text = "Monitor";
+            this.chkMonitor.UseVisualStyleBackColor = true;
+            this.chkMonitor.CheckedChanged += new System.EventHandler(this.chkMonitor_CheckedChanged);
+            // 
+            // txtBidPrice
+            // 
+            this.txtBidPrice.Location = new System.Drawing.Point(165, 309);
+            this.txtBidPrice.Name = "txtBidPrice";
+            this.txtBidPrice.Size = new System.Drawing.Size(205, 38);
+            this.txtBidPrice.TabIndex = 6;
+            // 
+            // txtSymbol
+            // 
+            this.txtSymbol.Location = new System.Drawing.Point(165, 210);
+            this.txtSymbol.Name = "txtSymbol";
+            this.txtSymbol.Size = new System.Drawing.Size(205, 38);
+            this.txtSymbol.TabIndex = 5;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(21, 316);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(129, 32);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Bid Price";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(21, 217);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(110, 32);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Symbol";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(21, 383);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(134, 32);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Ask Price";
+            // 
+            // txtAskPrice
+            // 
+            this.txtAskPrice.Location = new System.Drawing.Point(165, 373);
+            this.txtAskPrice.Name = "txtAskPrice";
+            this.txtAskPrice.Size = new System.Drawing.Size(205, 38);
+            this.txtAskPrice.TabIndex = 9;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1106, 859);
+            this.ClientSize = new System.Drawing.Size(1540, 867);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Dashboard";
             this.Text = "Dashboard";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dashboard_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -275,5 +393,17 @@
         private System.Windows.Forms.ComboBox cbUsers;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtClock;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtBidPrice;
+        private System.Windows.Forms.TextBox txtSymbol;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.CheckBox chkMonitor;
+        private System.Windows.Forms.TextBox txtAskPrice;
+        private System.Windows.Forms.Label label9;
     }
 }

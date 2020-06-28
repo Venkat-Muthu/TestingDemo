@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EAB49191-FD82-4654-83FA-85E1ACC18BA2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Utils</RootNamespace>
+    <AssemblyName>Utils</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FileSystemWrapper\DirectoryInfoWrapperManager.cs" />
+    <Compile Include="FileSystemWrapper\DirectoryWrapper.cs" />
+    <Compile Include="FileSystemWrapper\DriveInfoWrapper.cs" />
+    <Compile Include="FileSystemWrapper\FileInfoWrapper.cs" />
+    <Compile Include="FileSystemWrapper\FileInfoWrapperManager.cs" />
+    <Compile Include="FileSystemWrapper\FileSecurityWrapper.cs" />
+    <Compile Include="FileSystemWrapper\FileSystemWatcherWrapper.cs" />
+    <Compile Include="FileSystemWrapper\FileWrapper.cs" />
+    <Compile Include="FileSystemWrapper\IAccessTheRegistry.cs" />
+    <Compile Include="FileSystemWrapper\IDirectoryHierarchyLevelHelper.cs" />
+    <Compile Include="FileSystemWrapper\IDirectoryInfoWrapper.cs" />
+    <Compile Include="FileSystemWrapper\IFileSecurityWrapper.cs" />
+    <Compile Include="FileSystemWrapper\IRegistry.cs" />
+    <Compile Include="FileSystemWrapper\IRegistryKey.cs" />
+    <Compile Include="FileSystemWrapper\IRegistrySecurity.cs" />
+    <Compile Include="FileSystemWrapper\PathWrapper.cs" />
+    <Compile Include="FileSystemWrapper\RegistryKeyWrap.cs" />
+    <Compile Include="FileSystemWrapper\RegistrySecurityWrap.cs" />
+    <Compile Include="FileSystemWrapper\RegistryWrap.cs" />
+    <Compile Include="FileSystemWrapper\SafeHandles\ISafeFileHandle.cs" />
+    <Compile Include="FileSystemWrapper\SafeHandles\ISafeRegistryHandle.cs" />
+    <Compile Include="FileSystemWrapper\SafeHandles\SafeFileHandleWrap.cs" />
+    <Compile Include="FileSystemWrapper\SafeHandles\SafeRegistryHandleWrap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

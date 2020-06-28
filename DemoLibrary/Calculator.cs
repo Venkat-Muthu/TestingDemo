@@ -1,25 +1,52 @@
-﻿namespace DemoLibrary
+﻿using System;
+using System.Threading.Tasks;
+
+namespace DemoLibrary
 {
-    public static class Calculator
+    public class Calculator : ICalculator
     {
-        public static double Add(double x, double y)
+        public double Add(double x, double y)
         {
             return x + y;
         }
 
-        public static double Subtract(double x, double y)
+        public double Subtract(double x, double y)
         {
             return x - y;
         }
 
-        public static double Multiply(double x, double y)
+        public double Multiply(double x, double y)
         {
             return x * y;
         }
 
-        public static double Divide(double x, double y)
+        public double Divide(double x, double y)
         {
             return x / y;
+        }
+
+        public async Task<double> AddAsync(double x, double y)
+        {
+            return await Task.FromResult(Add(x, y));
+        }
+
+        public async Task<double> SubtractAsync(double x, double y)
+        {
+            return await Task.Run(() => Subtract(x, y));
+        }
+
+        public async Task<double> MultiplyAsync(double x, double y)
+        {
+            return await Task.Run(async () =>
+            {
+                await Task.Delay(TimeSpan.FromSeconds(5));//Purposeful delay for test
+                return Multiply(x, y);
+            });
+        }
+
+        public async Task<double> DivideAsync(double x, double y)
+        {
+            return await Task.Factory.StartNew(() => Divide(x, y));
         }
     }
 }
